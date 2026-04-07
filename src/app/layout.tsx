@@ -3,6 +3,7 @@ import { Playfair_Display_SC, Merriweather } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import ClientShell from "@/components/ClientShell";
+import GalaxyBackground from "@/components/GalaxyBackground";
 
 const playfair = Playfair_Display_SC({
   subsets: ["latin"],
@@ -159,14 +160,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${playfair.variable} ${merriweather.variable}`}>
-        <div className="galaxy-bg">
-          <img src="/galaxy/Dark galaxy 2 (1).webp" alt="Galaxy Background" />
-        </div>
-        <div className="star-field">
-          <div className="star-layer-1" />
-          <div className="star-layer-2" />
-          <div className="star-layer-3" />
-        </div>
+        <GalaxyBackground />
         <ClientShell />
         {children}
 

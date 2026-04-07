@@ -30,10 +30,32 @@ dist/
 # Large assets - not tracked in git
 public/assets/
 public/manifesto/
-public/galaxy-bg/
-public/galaxy/
-public/*.webp
-public/*.png
-public/*.mp4
+
+# EXCLUDE galaxy folders from ignore (we need these tracked)
+!public/galaxy-bg/
+!public/galaxy/
+
+# Ignore heavy public files except those we need
+public/*(1).*
+public/*-Copy*
+public/*-branded*
+public/*branded*
+public/kareem-crown*
+public/split*
+public/royal*
+public/griiff*
+public/onyx*
+public/max*
+public/echo-human*
+public/nina-human*
+public/roman-human*
+public/goldie--*
+public/nina's-sigil*
+public/roman's-shield*
+public/goldie's-sigil*
+public/echo-human*
+public/fetti*
 public/*.pdf
+public/*.mp4
+
 .vercel
