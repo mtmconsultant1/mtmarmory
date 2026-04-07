@@ -19,7 +19,7 @@ export default function PillarsSection() {
           icon="🎬"
           num="02"
           title="Cinematic Web"
-          desc="Your digital presence transformed. Not a website -- an experience. Every pixel earns trust. Every interaction builds authority."
+          desc="Your digital presence transformed. Not a website, an experience. Every pixel earns trust. Every interaction builds authority."
         />
         <PillarCard
           icon="👑"

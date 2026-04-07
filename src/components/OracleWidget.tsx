@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 const PERSONAS = [
   { id: "goldie", emoji: "🔆", name: "Goldie", color: "#D4AF37", greeting: "Welcome to the Armory! I see you're curious about MTM. What can I illuminate for you?" },
   { id: "roman", emoji: "⚔", name: "Roman", color: "#C0C0C0", greeting: "I've crunched the numbers. The Armory is fully operational. What data do you want?" },
-  { id: "nina", emoji: "❄", name: "Nina", color: "#FFFFFF", greeting: "Before you ask anything — let me make sure I give you the real answer, not the pretty one. What's on your mind?" },
+  { id: "nina", emoji: "❄", name: "Nina", color: "#FFFFFF", greeting: "Before you ask, let me make sure I give you the real answer. Not the pretty one. What's on your mind?" },
   { id: "echo", emoji: "📡", name: "Echo", color: "#8888BB", greeting: "I hear what you're looking for. The market has been quiet. But I have answers. What are you seeking?" }
 ]
 
@@ -40,7 +40,7 @@ export default function OracleWidget() {
       setTyping(false)
       setMessages(prev => [...prev, {
         role: PERSONAS[activePersona].id,
-        text: `That's a great question, but it gets into the deep architecture — a Roman-level deep dive that we reserve for our strategic partners. Let me connect you with a human who can give you the full picture. Click "Connect to Human" below.`
+        text: `That's a great question. It gets into the deep architecture. That's a Roman-level deep dive we reserve for our strategic partners. Let me connect you with a human who can give you the full picture. Click "Connect to Human" below.`
       }])
       setShowHandoff(true)
       return
@@ -63,7 +63,7 @@ export default function OracleWidget() {
 
         The user asked: "${userMsg}"
 
-        Answer in 2-3 sentences max. Stay in character. Focus on what MT Media AI does: AI-powered growth systems for small businesses. We are an AI-First Venture Studio — we build systems, not campaigns. Be helpful, confident, and concise. If asked about pricing or proprietary info, gently redirect to "That's a deep dive — let me connect you to our team."`
+        Answer in 2-3 sentences max. Stay in character. Focus on what MT Media AI does: AI-powered growth systems for small businesses. We are an AI-First Venture Studio. We build systems, not campaigns. Be helpful, confident, and concise. If asked about pricing or proprietary info, gently redirect to "That's a deep dive. Let me connect you to our team."`
 
         const result = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
           method: "POST",
@@ -93,8 +93,8 @@ export default function OracleWidget() {
     const responses: Record<string, string> = {
       goldie: "That's a wonderful question. MTM builds AI-powered systems that help small businesses grow into digital dynasties. We're the factory, not the service desk. Let me connect you to the right person for more details.",
       roman: "The math is simple. MTM generates AI-first growth systems. Zero-COGS infrastructure. Three-layer revenue model: agency, SaaS, studio. The data speaks for itself. Want the full breakdown? Connect to our team.",
-      nina: "Here's the truth: most agencies sell you campaigns that expire. MTM builds you systems that compound. We don't do marketing. We build Shovels — the platforms that let businesses build their own Digital Dynasties. Want proof? Book a strategy session.",
-      echo: "The market has been talking. Small businesses are drowning in AI chaos. MTM builds the Ark. We don't just do marketing — we build the systems that outlast every trend. I hear what you're really asking. Let's connect you to our team for the full answer."
+      nina: "Here's the truth: most agencies sell you campaigns that expire. MTM builds you systems that compound. We don't do marketing. We build Shovels: the platforms that let businesses build their own Digital Dynasties. Want proof? Book a strategy session.",
+      echo: "The market has been talking. Small businesses are drowning in AI chaos. MTM builds the Ark. We don't just do marketing. We build the systems that outlast every trend. I hear what you're really asking. Let's connect you to our team for the full answer."
     }
 
     setMessages(prev => [...prev, {

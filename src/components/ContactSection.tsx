@@ -5,7 +5,7 @@ export default function ContactSection() {
   const [status, setStatus] = useState("")
   const formRef = useRef<HTMLFormElement>(null)
 
-  // MTM Direct Contact Links — update with your Google Voice number
+  // MTM Direct Contact Links: update with your Google Voice number
   const WHATSAPP_LINK = "https://wa.me/1XXXXXXXXXX"
   const TELEGRAM_LINK = "https://t.me/kareemdanielp"
 

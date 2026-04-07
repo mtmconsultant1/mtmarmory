@@ -70,7 +70,7 @@ export default function GalaxyBackground() {
       const w = canvas.width
       const h = canvas.height
 
-      // Stars — 250 for density
+      // Stars: 250 for density
       if (starsRef.current.length === 0) {
         for (let i = 0; i < 250; i++) {
           starsRef.current.push({
@@ -84,13 +84,13 @@ export default function GalaxyBackground() {
         }
       }
 
-      // Comets — start with 2
+      // Comets: start with 2
       cometsRef.current = []
       for (let i = 0; i < 3; i++) {
         spawnComet(w, h)
       }
 
-      // Nebula clouds — 5 large drifting clouds
+      // Nebula clouds: 5 large drifting clouds
       nebulaeRef.current = []
       const nebulaColors = [
         "rgba(212,175,55,0.012)",
@@ -112,7 +112,7 @@ export default function GalaxyBackground() {
         })
       }
 
-      // Solar flares — 4
+      // Solar flares: 4
       flaresRef.current = []
       for (let i = 0; i < 4; i++) {
         flaresRef.current.push({
@@ -241,7 +241,7 @@ export default function GalaxyBackground() {
         star.a += star.s
         const alpha = 0.2 + Math.abs(Math.sin(star.a)) * 0.8
         if (star.g) {
-          // Gold halo — bigger glow area
+          // Gold halo: bigger glow area
           const haloGrad = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.r * 4)
           haloGrad.addColorStop(0, `rgba(212,175,55,${alpha * 0.08})`)
           haloGrad.addColorStop(1, "rgba(212,175,55,0)")
@@ -343,7 +343,7 @@ export default function GalaxyBackground() {
 
   return (
     <>
-      {/* Canvas layer — stars, comets, nebulae, flares */}
+      {/* Canvas layer: stars, comets, nebulae, flares */}
       <canvas
         ref={canvasRef}
         className="fixed inset-0 pointer-events-none"
@@ -373,7 +373,7 @@ export default function GalaxyBackground() {
         />
       </div>
 
-      {/* ACT 2: Main Galaxy — primary deep space backdrop */}
+      {/* ACT 2: Main Galaxy: primary deep space backdrop */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
@@ -396,7 +396,7 @@ export default function GalaxyBackground() {
         />
       </div>
 
-      {/* ACT 3: Earth — The Calm — fades in at 55% scroll, peaks 70-75% */}
+      {/* ACT 3: Earth: The Calm: fades in at 55% scroll, peaks 70-75% */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
@@ -420,7 +420,7 @@ export default function GalaxyBackground() {
         />
       </div>
 
-      {/* ACT 4: AI Impact — The Storm — 78%+ scroll */}
+      {/* ACT 4: AI Impact: The Storm: 78%+ scroll */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
@@ -445,7 +445,7 @@ export default function GalaxyBackground() {
         />
       </div>
 
-      {/* Top-down light gradient — celestial crown illumination */}
+      {/* Top-down light gradient: celestial crown illumination */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{

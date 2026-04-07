@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Is this for my type of business?",
-    a: "If you generate $1M–$10M in revenue, serve a premium niche, and are tired of watching less-qualified competitors outrank you online — yes. We build for ambitious operators, not hobbyists."
+    a: "If you generate $1M–$10M in revenue, serve a premium niche, and are tired of watching less-qualified competitors outrank you online: yes. We build for ambitious operators, not hobbyists."
   },
   {
     q: "What's the difference between MTM and a normal marketing agency?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "What is The Forge?",
-    a: "Our internal AI team — four specialized personas that work together to generate competitive intelligence, content strategies, and actionable insights. Think of it as your personal intelligence unit."
+    a: "Our internal AI team: four specialized personas that work together to generate competitive intelligence, content strategies, and actionable insights. Think of it as your personal intelligence unit."
   },
   {
     q: "How fast can I expect results?",
@@ -148,7 +148,7 @@ export default function OpenChannelSection() {
 
   return (
     <section className="open-channel-section reveal" id="open-channel">
-      {/* ═══ SOVEREIGN WELCOME — Dynamic Name Recognition ═══ */}
+      {/* ═══ SOVEREIGN WELCOME: Dynamic Name Recognition ═══ */}
       {showWelcome && (
         <SovereignWelcome
           visitorId={visitorId}
@@ -159,14 +159,14 @@ export default function OpenChannelSection() {
         />
       )}
 
-      {/* ═══ QUESTION SUBMISSION — Direct Contact ═══ */}
+      {/* ═══ QUESTION SUBMISSION: Direct Contact ═══ */}
       <div className="channel-header">
         <span className="section-label">Open Channel</span>
         <h2 className="section-title">Got <span className="gold">Questions</span>?</h2>
         <p className="channel-header-sub">The squad's always on. Tap in, tap out. No wait times, no runaround.</p>
       </div>
 
-      {/* ═══ FAQ GLASS STACK — Dynamic Content ═══ */}
+      {/* ═══ FAQ GLASS STACK: Dynamic Content ═══ */}
       <div className="faq-glass-stack">
         {faqs.map((faq: { q: string; a: string }, i: number) => (
           <div key={i} className={`faq-glass-card ${openIndex === i ? 'open' : ''}`}>
@@ -181,7 +181,7 @@ export default function OpenChannelSection() {
         ))}
       </div>
 
-      {/* ═══ STILL NEED HELP — Direct Contact ═══ */}
+      {/* ═══ STILL NEED HELP: Direct Contact ═══ */}
       <div className="direct-contact-section">
         <p className="section-subtitle">Not covered here? Get your answer in 2 minutes.</p>
         <div className="direct-contact-buttons">

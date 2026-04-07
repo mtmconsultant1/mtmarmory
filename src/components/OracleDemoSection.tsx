@@ -19,7 +19,7 @@ export default function OracleDemoSection() {
             </h2>
             <div className="w-16 h-px bg-[#D4AF37] mb-6" />
             <p className="text-[#C0C0C0]/60 text-sm leading-relaxed mb-6" style={{ fontFamily: "var(--font-merriweather)", fontWeight: 300 }}>
-              The Oracle is not a chatbot. It is a multi-persona intelligence system — each voice bringing a different strategic lens to your questions. Visionary insight. Architectural precision. Skeptical rigor. Resonant amplification.
+              The Oracle is not a chatbot. It is a multi-persona intelligence system. Each voice brings a different strategic lens to your questions. Visionary insight. Architectural precision. Skeptical rigor. Resonant amplification.
             </p>
             <p className="text-[#C0C0C0]/40 text-xs" style={{ fontFamily: "var(--font-merriweather)", fontWeight: 300 }}>
               Click the floating sigil at the bottom right to begin.
