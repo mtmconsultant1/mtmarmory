@@ -124,8 +124,12 @@ export default function OpenChannelSection() {
   const [showWelcome, setShowWelcome] = useState(true)
   const [visitorId, setVisitorId] = useState<string | null>(null)
 
-  // Load dynamic FAQ from localStorage (updated by cron job)
-  const [faqs, setFaqs] = useState(faqs)
+  const defaultFaqs: FAQItem[] = [
+    { q: "What is MT Media AI and what do you actually build?", a: "We engineer AI-first marketing systems for ambitious brands. Sovereign intelligence, cinematic websites, and deployable tools." },
+    { q: "How does The Forge produce content?", a: "Four unique voices (Goldie, Roman, Nina, Echo) process every project through adoption, strategy, and execution loops." },
+    { q: "Can I use your tools as a prospect?", a: "Absolutely. Visit the Armory to interact with our live tools. Each one is proof of capability, not a mock product." },
+  ]
+  const [faqs, setFaqs] = useState<FAQItem[]>(defaultFaqs)
   useEffect(() => {
     const saved = localStorage.getItem('mtm_dynamic_faqs')
     if (saved) {
