@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
-import { Playfair_Display_SC, Merriweather } from "next/font/google";
+import { Playfair_Display, Merriweather } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import ClientShell from "@/components/ClientShell";
 import GalaxyBackground from "@/components/GalaxyBackground";
 
-const playfair = Playfair_Display_SC({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["900"],
   variable: "--font-playfair",
+  display: "swap",
 });
 
 const merriweather = Merriweather({
   subsets: ["latin"],
-  weight: ["300", "400", "900"],
+  weight: ["300", "400", "700"],
   variable: "--font-merriweather",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -159,7 +161,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
         />
       </head>
-      <body className={`${playfair.variable} ${merriweather.variable}`}>
+      <body className={`${playfair.variable} ${merriweather.variable}`} style={{ cursor: 'none' }}>
         <GalaxyBackground />
         <ClientShell />
         {children}

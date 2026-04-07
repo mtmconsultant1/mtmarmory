@@ -13,15 +13,15 @@ export default function OracleDemoSection() {
             </p>
             <h2
               className="text-4xl md:text-5xl text-white mb-6 zolly-text"
-              style={{ fontFamily: "'Playfair Display SC', serif", animationFillMode: "both" }}
+              style={{ fontFamily: "var(--font-playfair)", animationFillMode: "both" }}
             >
               Intelligence, On Demand
             </h2>
             <div className="w-16 h-px bg-[#D4AF37] mb-6" />
-            <p className="text-[#C0C0C0]/60 text-sm leading-relaxed mb-6" style={{ fontFamily: "'Merriweather', serif", fontWeight: 300 }}>
+            <p className="text-[#C0C0C0]/60 text-sm leading-relaxed mb-6" style={{ fontFamily: "var(--font-merriweather)", fontWeight: 300 }}>
               The Oracle is not a chatbot. It is a multi-persona intelligence system — each voice bringing a different strategic lens to your questions. Visionary insight. Architectural precision. Skeptical rigor. Resonant amplification.
             </p>
-            <p className="text-[#C0C0C0]/40 text-xs" style={{ fontFamily: "'Merriweather', serif", fontWeight: 300 }}>
+            <p className="text-[#C0C0C0]/40 text-xs" style={{ fontFamily: "var(--font-merriweather)", fontWeight: 300 }}>
               Click the floating sigil at the bottom right to begin.
             </p>
           </div>
@@ -56,7 +56,7 @@ export default function OracleDemoSection() {
                 style={{ borderRadius: "50%", animation: "goldPulse 3s ease-in-out infinite", background: "rgba(212,175,55,0.08)", backdropFilter: "blur(16px)", boxShadow: "0 1px 0 rgba(255,255,255,0.15) inset, 0 8px 24px rgba(0,0,0,0.4), 0 0 20px rgba(212,175,55,0.1)" }}
               >
                 <div className="w-12 h-12 bg-[#D4AF37]/10 flex items-center justify-center" style={{ borderRadius: "50%" }}>
-                  <span className="text-[#D4AF37] text-xl" style={{ fontFamily: "'Playfair Display SC', serif" }}>M</span>
+                  <span className="text-[#D4AF37] text-xl" style={{ fontFamily: "var(--font-playfair)" }}>M</span>
                 </div>
               </div>
 

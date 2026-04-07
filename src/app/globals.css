@@ -23,6 +23,8 @@
     --mtm-void: #050510;
     --mtm-font-heading: var(--font-playfair), serif;
     --mtm-font-body: var(--font-merriweather), Georgia, serif;
+    --mtm-font-footer: Georgia, serif;
+    --mtm-font-tech: 'Times New Roman', monospace;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
