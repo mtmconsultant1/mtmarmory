@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
+interface FAQItem { q: string; a: string }
 
 // ═══ INITIAL FAQ SEED ═══
 // These will be replaced/updated by the weekly AGO Schema Scan
