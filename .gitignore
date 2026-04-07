@@ -36,3 +36,4 @@ public/*.webp
 public/*.png
 public/*.mp4
 public/*.pdf
+.vercel
