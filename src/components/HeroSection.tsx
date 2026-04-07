@@ -1,100 +1,135 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Mail, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const HeroSection = () => {
+  
+  // Zero-Point Reset: Force viewport to top on initial load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (window.location.hash.length > 0) {
+      history.replaceState(null, '', window.location.pathname);
+    }
+  }, []);
+
+  const handleMailRedirect = () => {
+    window.location.href = "mailto:mtmconsultant1@gmail.com?subject=Legion Access Inquiry";
+  };
+
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#050510] flex flex-col items-center justify-center">
+    <section className="relative h-screen w-full overflow-hidden bg-[#050510]" id="hero">
       
-      {/* 1. THE INFINITY BACKGROUND LAYER */}
-      {/* Replaces the static image. Auto-playing, looping, filling the viewport */}
+      {/* 
+        ========================================
+        1. THE INFINITY BACKGROUND LAYER
+        ========================================
+        This is the "Environment". 
+        Video + Image blend to ensure visual continuity even if video loads slowly.
+      */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black z-10" />
+        
+        {/* Base Image: Earth from space (Always visible, immediate load) */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: 'url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80")',
+            filter: 'brightness(0.6)'
+          }}
+        />
+
+        {/* Video Overlay: The animated "Living" Earth 
+            Swap the src with your local file like: src="/earth-glowing.mp4" 
+        */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="h-full w-full object-cover opacity-80"
-          style={{ mixBlendMode: 'screen', filter: 'brightness(0.6)' }}
+          className="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-screen"
         >
           <source 
             src="https://assets.codepen.io/1948355/earth-loop.mp4" 
             type="video/mp4" 
           />
         </video>
-        {/* Ambient radial glow to blend video into the galaxy */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050510] via-transparent to-[#050510] opacity-40 z-20" />
+        
+        {/* Seamless Blend: Radial Gradient to melt edges into the galaxy below */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050510]/30 via-transparent to-[#050510] opacity-90" />
       </div>
 
-      {/* 2. THE CONTENT LAYER (Embedded in Hero) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center h-full">
+      {/* 
+        ========================================
+        2. THE CONTENT LAYER
+        ========================================
+        Embedded directly on top. No containers.
+      */}
+      <div className="relative z-10 w-full h-full flex flex-col">
         
-        {/* Navbar Integration */}
-        <nav className="w-full py-8 flex items-center justify-between text-white">
+        {/* --- Embedded Navbar --- */}
+        <nav className="w-full px-6 md:px-12 py-8 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer group">
-            {/* MTM Shield Logo - Placeholder for branded shield */}
-            <span className="font-bold text-xl tracking-widest font-heading group-hover:text-[#D4AF37] transition-colors duration-300">MTM ARMORY</span>
+            {/* MTM Logo Placeholder - Replace src with your asset */}
+            {/* <img src="/mtm-shield-logo.webp" className="w-10 h-10" alt="MTM" /> */}
+            <span className="font-bold text-xl tracking-widest text-white group-hover:text-[#D4AF37] transition-colors font-heading">MTM ARMORY</span>
           </div>
           
-          {/* Desktop Nav */}
+          {/* Nav Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#pillars" className="text-sm font-medium text-zinc-400 hover:text-[#D4AF37] transition-colors uppercase tracking-wider">Pillars</a>
-            <a href="#arsenal" className="text-sm font-medium text-zinc-400 hover:text-[#D4AF37] transition-colors uppercase tracking-wider">Arsenal</a>
-            <a href="#contact" className="text-sm font-medium text-zinc-400 hover:text-[#D4AF37] transition-colors uppercase tracking-wider">Contact</a>
-          </div>
-
-          <div className="md:hidden">
-             {/* Mobile menu placeholder if needed, kept minimal */}
+            <a href="#pillars" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Pillars</a>
+            <a href="#arsenal" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Arsenal</a>
+            <a href="#contact" className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Contact</a>
           </div>
         </nav>
 
-        {/* Hero Body */}
-        <div className="flex-1 flex flex-col items-center justify-center text-center max-w-3xl mt-[-40px]">
+        {/* --- Hero Body: Centered --- */}
+        <div className="flex-1 flex flex-col items-center justify-center text-center px-6">
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            transition={{ duration: 1 }}
+            className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-widest text-white mb-6 font-heading">
+            {/* Title */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-widest text-white mb-6 font-heading drop-shadow-[0_0_30px_rgba(0,0,0,0.8)]">
               MTM ARMORY
             </h1>
             
-            <p className="text-zinc-300 text-lg md:text-xl font-light tracking-wide max-w-xl mx-auto font-body mb-10">
-              Elite tools and sovereign infrastructure for the modern architect. We don't sell campaigns. We build shovels.
+            {/* Description */}
+            <p className="text-zinc-300 text-lg md:text-xl font-light tracking-wide max-w-xl mx-auto mb-10 font-body">
+              Elite tools and sovereign infrastructure for the modern architect.<br />We don't sell campaigns. We build shovels.
             </p>
 
-            {/* Tactical Email Capture (Vanity Display -> Gmail Route) */}
+            {/* Tactical Email Capture */}
             <motion.div 
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="w-full max-w-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4 }}
+              className="w-full max-w-md"
             >
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-0 p-1.5 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 shadow-2xl">
-                <div className="flex items-center flex-1 pl-4 gap-3 py-1">
-                  <Mail className="w-5 h-5 text-[#D4AF37]" />
-                  <span className="text-sm font-mono text-zinc-300 tracking-wide">kareem.mtmediaai.com</span>
+              <div className="p-1.5 rounded-lg bg-black/40 backdrop-blur-xl border border-white/10 shadow-2xl">
+                <div className="flex flex-col sm:flex-row items-center gap-2">
+                  <div className="flex items-center flex-1 pl-4 gap-3 py-1 sm:py-0">
+                    <Mail className="w-5 h-5 text-[#D4AF37]" />
+                    <span className="text-sm font-mono text-zinc-300">kareem.mtmediaai.com</span>
+                  </div>
+                  <button 
+                    onClick={handleMailRedirect}
+                    className="w-full sm:w-auto bg-[#D4AF37] text-black hover:bg-white px-6 py-3 rounded-md font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 uppercase tracking-wider"
+                  >
+                    Request Access <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
-                <a 
-                  href="mailto:mtmconsultant1@gmail.com?subject=Legion Access Inquiry"
-                  className="w-full sm:w-auto bg-[#D4AF37] text-black hover:bg-white hover:text-black px-6 py-3 rounded-md font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 uppercase tracking-wider"
-                >
-                  Request Access <ArrowRight className="w-4 h-4" />
-                </a>
               </div>
             </motion.div>
           </motion.div>
         </div>
         
+        {/* Spacer for bottom fade */}
+        <div className="h-24 bg-gradient-to-t from-[#050510] to-transparent w-full pointer-events-none" />
       </div>
-
-      {/* Background Glow Effect (Cosmic Depth) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-500/5 blur-[150px] rounded-full -z-10 pointer-events-none" />
     </section>
   );
 };
