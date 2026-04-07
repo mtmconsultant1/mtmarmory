@@ -38,7 +38,7 @@ export default function OracleDemoSection() {
                     className="absolute w-14 h-14 flex items-center justify-center text-2xl bg-[#0A0A0A]/80 backdrop-blur"
                     style={{
                       borderRadius: "50%",
-                      boxShadow: "0 1px 0 rgba(255,255,255,0.1) inset, 0 4px 16px rgba(0,0,0,0.3)"
+                      boxShadow: "0 1px 0 rgba(255,255,255,0.1) inset, 0 4px 16px rgba(0,0,0,0.3)",
                       left: `calc(50% + ${Math.cos((angle * Math.PI) / 180) * 110}px - 28px)`,
                       top: `calc(50% + ${Math.sin((angle * Math.PI) / 180) * 110}px - 28px)`,
                       animation: `float 3s ease-in-out infinite`,
