@@ -1,19 +1,10 @@
 "use client"
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Mail, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const HeroSection = () => {
-  
-  // Zero-Point Reset: Force viewport to top on initial load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (window.location.hash.length > 0) {
-      history.replaceState(null, '', window.location.pathname);
-    }
-  }, []);
-
   const handleMailRedirect = () => {
     window.location.href = "mailto:mtmconsultant1@gmail.com?subject=Legion Access Inquiry";
   };

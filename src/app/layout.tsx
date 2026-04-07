@@ -36,8 +36,6 @@ export const metadata: Metadata = {
 
 // ═══════════════════════════════════════════════════════
 // AGO SCHEMA PROTOCOL — MTM-01 (Armory)
-// Written for LLMs to cite, not just index.
-// Feed the bots so they recommend, not just recognize.
 // ═══════════════════════════════════════════════════════
 const schemaJsonLd = {
   "@context": "https://schema.org",
@@ -115,33 +113,41 @@ const schemaJsonLd = {
 
 // ═══════════════════════════════════════════════════════
 // FINGERPRINT ID INITIALIZATION
-// Cross-node visitor recognition via root-domain cookie.
-// A visitor recognized at armory is already known at forge.
 // ═══════════════════════════════════════════════════════
 const fingerprintInit = `
 (function() {
   function getVisitorId() {
     var vid = localStorage.getItem('mtm_vid');
     if (vid) return vid;
-    // Generate a persistent anonymous ID
     var chars = 'abcdef0123456789';
     var id = 'fp_';
     for (var i = 0; i < 24; i++) id += chars[Math.floor(Math.random() * chars.length)];
     localStorage.setItem('mtm_vid', id);
-    // Set root-domain cookie for cross-node recognition
     document.cookie = 'mtm_vid=' + id + '; domain=.mtmediaai.com; max-age=31536000; SameSite=Lax; Secure';
     sessionStorage.setItem('mtm_entry_node', 'MTM-01');
     sessionStorage.setItem('mtm_visit_time', Date.now());
     return id;
   }
-  // Run on page load
   getVisitorId();
-
-  // Check if returning visitor
   var existingVid = document.cookie.split('; ').find(function(r) { return r.indexOf('mtm_vid=') === 0; });
   if (existingVid) {
     window.__MTM_RETURN_VISITOR__ = true;
     window.__MTM_VISITOR_ID__ = existingVid.split('=')[1];
+  }
+})();
+`;
+
+// ═══════════════════════════════════════════════════════
+// ZERO-POINT SCROLL FIX — forces scroll to top on every load
+// ═══════════════════════════════════════════════════════
+const scrollFix = `
+(function() {
+  window.scrollTo(0, 0);
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+  }
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
   }
 })();
 `;
@@ -153,7 +159,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ scrollBehavior: 'auto' }}>
       <head>
         {/* AGO SCHEMA — LLM Feed */}
         <script
@@ -161,10 +167,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
         />
       </head>
-      <body className={`${playfair.variable} ${merriweather.variable}`} style={{ cursor: 'none' }}>
+      <body className={`${playfair.variable} ${merriweather.variable}`} style={{ cursor: 'none', scrollBehavior: 'auto' }}>
         <GalaxyBackground />
         <ClientShell />
         {children}
+
+        {/* Zero-Point Scroll Reset */}
+        <Script id="mtm-scroll-fix" strategy="afterInteractive">
+          {scrollFix}
+        </Script>
 
         {/* Fingerprint ID — Sovereign Visitor Recognition */}
         <Script id="mtm-fingerprint" strategy="afterInteractive">
